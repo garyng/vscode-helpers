@@ -884,24 +884,24 @@ export function isEmptyString(val: any): boolean {
  *
  * @return {TModule} The loaded module.
  */
-export function loadModule<TModule = any>(file: string, fromCache = false): TModule {
-    file = toStringSafe(file);
-    if (isEmptyString(file)) {
-        file = './module.js';
-    }
-    if (!Path.isAbsolute(file)) {
-        file = Path.join(process.cwd(), file);
-    }
-    file = Path.resolve(file);
+// export function loadModule<TModule = any>(file: string, fromCache = false): TModule {
+//     file = toStringSafe(file);
+//     if (isEmptyString(file)) {
+//         file = './module.js';
+//     }
+//     if (!Path.isAbsolute(file)) {
+//         file = Path.join(process.cwd(), file);
+//     }
+//     file = Path.resolve(file);
 
-    fromCache = toBooleanSafe(fromCache);
+//     fromCache = toBooleanSafe(fromCache);
 
-    if (!fromCache) {
-        delete require.cache[file];
-    }
+//     if (!fromCache) {
+//         delete require.cache[file];
+//     }
 
-    return require(file);
-}
+//     return require(file);
+// }
 
 /**
  * Normalizes a value as string so that is comparable.
